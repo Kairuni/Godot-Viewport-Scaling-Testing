@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=3 uid="uid://bgosoekgs40u5"]
+
+[ext_resource type="FontFile" uid="uid://bial4uxrk0ahb" path="res://Font/Workbench/Workbench-Regular-VariableFont_BLED,SCAN.ttf" id="1_b8nkk"]
+[ext_resource type="Texture2D" uid="uid://cv53wa4tq1a7e" path="res://icon.svg" id="1_jhw6n"]
+[ext_resource type="Script" uid="uid://016e2x6rl435" path="res://Scripts/UI/WindowSizesOptionsButton.gd" id="2_xvfg1"]
+[ext_resource type="Script" uid="uid://bb5r0omdgb23f" path="res://Scripts/UI/ContentScaleSizesOptionsButton.gd" id="3_kn3is"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.25, 0.25)
+columns = 2
+
+[node name="Window Size" type="Label" parent="CanvasLayer/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_b8nkk")
+theme_override_font_sizes/font_size = 16
+text = "Window Size"
+
+[node name="Window Sizes" type="OptionButton" parent="CanvasLayer/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_b8nkk")
+script = ExtResource("2_xvfg1")
+
+[node name="Content Scale Size" type="Label" parent="CanvasLayer/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_b8nkk")
+theme_override_font_sizes/font_size = 16
+text = "Content Scale Size"
+
+[node name="Content Scale Sizes" type="OptionButton" parent="CanvasLayer/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_b8nkk")
+script = ExtResource("3_kn3is")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(19, 33)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_jhw6n")
+
+[connection signal="item_selected" from="CanvasLayer/GridContainer/Window Sizes" to="CanvasLayer/GridContainer/Window Sizes" method="_on_item_selected"]
+[connection signal="item_selected" from="CanvasLayer/GridContainer/Content Scale Sizes" to="CanvasLayer/GridContainer/Content Scale Sizes" method="_on_item_selected"]
